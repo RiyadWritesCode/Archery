@@ -6,9 +6,14 @@ using System;
 
 public class ArrowShooter : MonoBehaviour
 {
-    [SerializeField] GameObject bowArrow;
-    [SerializeField] GameObject arrows;
-    [SerializeField] InputAction shootArrow;
+    public GameObject bowArrow;
+    public GameObject arrowContainer;
+    public GameObject arrow;
+
+    public InputAction shootArrow;
+
+    playerCamera playerCamera;
+    GameObject launchedArrow;
 
     void OnEnable()
     {
@@ -22,17 +27,21 @@ public class ArrowShooter : MonoBehaviour
 
     void Start()
     {
-        
+        playerCamera = FindObjectOfType<playerCamera>();
     }
 
     void Update()
     {
-        if(shootArrow.triggered == true)
+        if (shootArrow.triggered == true)
         {
-            GameObject launchedArrow = Instantiate(bowArrow, new Vector3(0,7,0), Quaternion.Euler(new Vector3(-90,0,0)), arrows.transform);
-            launchedArrow.GetComponent<Rigidbody>().AddRelativeForce(0, -2000, 0);
-            launchedArrow.GetComponent<BoxCollider>().isTrigger = false;
-            
+            launchedArrow = Instantiate(
+                arrow,
+                new Vector3(bowArrow.transform.position.x, bowArrow.transform.position.y, bowArrow.transform.position.z),
+                Quaternion.Euler(bowArrow.transform.eulerAngles),
+                arrowContainer.transform);
+            launchedArrow.GetComponent<Rigidbody>().AddForce(playerCamera.player.transform.forward * 2000);
+
         }
+
     }
 }
