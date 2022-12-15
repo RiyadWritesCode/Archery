@@ -10,10 +10,14 @@ public class ArrowShooter : MonoBehaviour
     public GameObject arrowContainer;
     public GameObject arrow;
 
+    public int arrowSpeed;
+
     public InputAction shootArrow;
 
-    playerCamera playerCamera;
-    GameObject launchedArrow;
+    PlayerCamera playerCamera;
+
+    int arrowNumber = 0;
+    List<GameObject> launchedArrows = new List<GameObject>();
 
     void OnEnable()
     {
@@ -27,20 +31,21 @@ public class ArrowShooter : MonoBehaviour
 
     void Start()
     {
-        playerCamera = FindObjectOfType<playerCamera>();
+        playerCamera = FindObjectOfType<PlayerCamera>();
     }
 
     void Update()
     {
         if (shootArrow.triggered == true)
         {
-            launchedArrow = Instantiate(
-                arrow,
-                new Vector3(bowArrow.transform.position.x, bowArrow.transform.position.y, bowArrow.transform.position.z),
-                Quaternion.Euler(bowArrow.transform.eulerAngles),
-                arrowContainer.transform);
-            launchedArrow.GetComponent<Rigidbody>().AddForce(playerCamera.player.transform.forward * 2000);
+            //Instantiating arrow and storing into array
+            launchedArrows.Add(Instantiate(arrow, bowArrow.transform.position, Quaternion.Euler(bowArrow.transform.eulerAngles), arrowContainer.transform));
 
+
+            //Shooting in camera direction
+            launchedArrows[arrowNumber].GetComponent<Rigidbody>().AddForce(playerCamera.player.transform.forward * arrowSpeed);
+
+            arrowNumber++;
         }
 
     }

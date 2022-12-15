@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-public class playerCamera : MonoBehaviour
+public class PlayerCamera : MonoBehaviour
 {
     //[SerializeField] InputAction playerMovement;
 
