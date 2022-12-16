@@ -21,6 +21,7 @@ public class PlayerController : MonoBehaviour
     public float airMultiplier;
     bool readyToJump = true;
     public int startDownForce;
+    public float airDrag;
 
     Vector3 moveDirection;
     Vector2 movement;
@@ -29,6 +30,7 @@ public class PlayerController : MonoBehaviour
     float horizontalInput;
 
     Rigidbody rb;
+    RaycastHit hit;
 
     private void OnEnable()
     {
@@ -51,6 +53,7 @@ public class PlayerController : MonoBehaviour
     {
         // ground check
         grounded = Physics.Raycast(playerMesh.transform.position, Vector3.down, playerHeight * 0.5f + 0.2f, whatIsGround);
+        //grounded = Physics.SphereCast(playerMesh.transform.position, 4f, Vector3.down, out hit, playerHeight * 0.5f + 0.2f, whatIsGround);
 
         // handle drag
         if (grounded)
@@ -59,7 +62,7 @@ public class PlayerController : MonoBehaviour
         }
         else
         {
-            rb.drag = 0;
+            rb.drag = airDrag;
         }
 
         MyInput();
@@ -67,7 +70,7 @@ public class PlayerController : MonoBehaviour
 
         if (rb.velocity.y < startDownForce && !grounded)
         {
-            rb.AddForce(new Vector3(0, -jumpForce * 1.5f, 0));
+            rb.AddForce(new Vector3(0, -jumpForce * 2f, 0));
         }
     }
 

@@ -14,6 +14,6 @@ public class MoveBow : MonoBehaviour
 
     void Update()
     {
-        bow.position = new Vector3(bow.position.x, PlayerController.playerMesh.transform.position.y, bow.position.z);
+        //bow.position = new Vector3(bow.position.x, -PlayerController.playerMesh.transform.position.y, bow.position.z);
     }
 }

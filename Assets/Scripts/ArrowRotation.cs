@@ -28,11 +28,11 @@ public class ArrowRotation : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
-        gameObject.transform.parent = collision.transform;
-
-        ms.enabled = false;
-        rb.isKinematic = true;
+        if(collision.gameObject.tag != "arrow")
+        {
+            gameObject.transform.parent = collision.transform;
+            ms.enabled = false;
+            rb.isKinematic = true;
+        }
     }
-
-
 }

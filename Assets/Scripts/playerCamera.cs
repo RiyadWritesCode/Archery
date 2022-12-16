@@ -1,9 +1,12 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class PlayerCamera : MonoBehaviour
 {
+    public InputAction cameraInput;
+
     [SerializeField] float xSensitivity;
     [SerializeField] float ySensitivity;
 
@@ -22,9 +25,14 @@ public class PlayerCamera : MonoBehaviour
 
     void Update()
     {
-        
-        float mouseX = Input.GetAxisRaw("Mouse X") * Time.deltaTime * xSensitivity;
-        float mouseY = Input.GetAxisRaw("Mouse Y") * Time.deltaTime * ySensitivity;
+
+        //float mouseX = Input.GetAxisRaw("Mouse X") * Time.deltaTime * xSensitivity;
+        //float mouseY = Input.GetAxisRaw("Mouse Y") * Time.deltaTime * ySensitivity;
+
+        float mouseX = cameraInput.ReadValue<Vector2>().x * Time.deltaTime * xSensitivity;
+        float mouseY = cameraInput.ReadValue<Vector2>().y * Time.deltaTime * ySensitivity;
+
+        Debug.Log(mouseY);
 
         xRotation -= mouseY;
         yRotation += mouseX;
