@@ -1,12 +1,9 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.InputSystem;
 
 public class PlayerCamera : MonoBehaviour
 {
-    //[SerializeField] InputAction playerMovement;
-
     [SerializeField] float xSensitivity;
     [SerializeField] float ySensitivity;
 
@@ -17,16 +14,6 @@ public class PlayerCamera : MonoBehaviour
     float yRotation;
 
 
-    //private void OnEnable()
-    //{
-    //    playerMovement.Enable();
-    //}
-
-    //private void OnDisable()
-    //{
-    //    playerMovement.Disable();
-    //}
-
     void Start()
     {
         Cursor.lockState = CursorLockMode.Locked;
@@ -35,10 +22,7 @@ public class PlayerCamera : MonoBehaviour
 
     void Update()
     {
-        //Vector2 movement = playerMovement.ReadValue<Vector2>();
-        //Debug.Log(movement.x);
-        //Debug.Log(movement.y);
-
+        
         float mouseX = Input.GetAxisRaw("Mouse X") * Time.deltaTime * xSensitivity;
         float mouseY = Input.GetAxisRaw("Mouse Y") * Time.deltaTime * ySensitivity;
 

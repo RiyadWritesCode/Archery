@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using System;
+using Newtonsoft.Json.Linq;
 
 public class ArrowShooter : MonoBehaviour
 {
@@ -11,8 +12,11 @@ public class ArrowShooter : MonoBehaviour
     public GameObject arrow;
 
     public int arrowSpeed;
+    public float drawCooldown;
+    public bool readyToDraw = true;
+    public float percentageDraw;
 
-    public InputAction shootArrow;
+    public InputAction shootInput;
 
     PlayerCamera playerCamera;
 
@@ -21,12 +25,12 @@ public class ArrowShooter : MonoBehaviour
 
     void OnEnable()
     {
-        shootArrow.Enable();
+        shootInput.Enable();
     }
 
     void OnDisable()
     {
-        shootArrow.Disable();
+        shootInput.Disable();
     }
 
     void Start()
@@ -36,17 +40,31 @@ public class ArrowShooter : MonoBehaviour
 
     void Update()
     {
-        if (shootArrow.triggered == true)
-        {
-            //Instantiating arrow and storing into array
+
+    }
+
+    public void ResetShoot()
+    {
+        readyToDraw = true;
+    }
+
+    public void ShootArrow()
+    {
+        // Instantiating arrow and storing into array
             launchedArrows.Add(Instantiate(arrow, bowArrow.transform.position, Quaternion.Euler(bowArrow.transform.eulerAngles), arrowContainer.transform));
 
-
-            //Shooting in camera direction
-            launchedArrows[arrowNumber].GetComponent<Rigidbody>().AddForce(playerCamera.player.transform.forward * arrowSpeed);
-
-            arrowNumber++;
+        if (percentageDraw > 1)
+        {
+            percentageDraw = 1;
         }
 
+        Debug.Log(percentageDraw);
+
+        // Shooting in camera direction
+        launchedArrows[arrowNumber].GetComponent<Rigidbody>().AddForce(playerCamera.player.transform.forward * arrowSpeed * percentageDraw);
+
+        arrowNumber++;
+        readyToDraw = false;
+        Invoke("ResetShoot", drawCooldown);
     }
 }
