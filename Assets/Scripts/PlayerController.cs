@@ -70,7 +70,7 @@ public class PlayerController : MonoBehaviour
 
         if (rb.velocity.y < startDownForce && !grounded)
         {
-            rb.AddForce(new Vector3(0, -jumpForce * 2f, 0));
+            rb.AddForce(new Vector3(0, -18f, 0));
         }
     }
 

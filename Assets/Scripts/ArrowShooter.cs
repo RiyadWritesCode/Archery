@@ -40,7 +40,13 @@ public class ArrowShooter : MonoBehaviour
 
     void Update()
     {
-
+        if (Input.GetKey(KeyCode.C))
+        {
+            foreach(GameObject arrow in launchedArrows)
+            {
+                Destroy(arrow);
+            }
+        }
     }
 
     public void ResetShoot()
@@ -58,7 +64,6 @@ public class ArrowShooter : MonoBehaviour
             percentageDraw = 1;
         }
 
-        Debug.Log(percentageDraw);
 
         // Shooting in camera direction
         launchedArrows[arrowNumber].GetComponent<Rigidbody>().AddForce(playerCamera.player.transform.forward * arrowSpeed * percentageDraw);

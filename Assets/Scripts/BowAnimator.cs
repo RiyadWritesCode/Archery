@@ -21,7 +21,6 @@ public class BowAnimator : MonoBehaviour
         {
             ArrowShooter.bowArrow.GetComponent<MeshRenderer>().enabled = true;
             animator.SetBool("isDrawing", true);
-            Debug.Log("Pressed!");
             readyToShoot = true;
         }
 
