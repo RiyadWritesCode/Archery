@@ -1,19 +1,24 @@
 ﻿<Properties StartupConfiguration="{EF5A1A13-DF17-BF6D-4824-ECB581C5ECA1}|">
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MultiItemStartupConfigurations />
-  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore />
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/BowAnimator.cs">
+  <MultiItemStartupConfigurations />
+  <MonoDevelop.Ide.ItemProperties.Assembly-CSharp PreferredExecutionTarget="3e9d976a-6c97-44fe-bb8f-718bd1cc99a6" />
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/PointDisplay.cs">
     <Files>
-      <File FileName="Assets/Scripts/PlayerController.cs" Line="79" Column="61" />
-      <File FileName="Assets/Scripts/PlayerController.cs" Line="33" Column="91" />
-      <File FileName="Assets/Scripts/arrowRotation.cs" Line="36" Column="10" />
+      <File FileName="Assets/Scripts/PlayerController.cs" Line="29" Column="25" />
+      <File FileName="Assets/Scripts/arrowRotation.cs" Line="1" Column="1" />
       <File FileName="Assets/Scripts/MoveBow.cs" Line="18" Column="1" />
-      <File FileName="Assets/Scripts/BowAnimator.cs" Line="16" Column="1" />
-      <File FileName="Assets/Scripts/ArrowShooter.cs" Line="1" Column="1" />
+      <File FileName="Assets/Scripts/BowAnimator.cs" Line="32" Column="80" />
+      <File FileName="Assets/Scripts/ArrowShooter.cs" Line="71" Column="72" />
       <File FileName="Assets/Scripts/MovePlayer.cs" Line="1" Column="1" />
+      <File FileName="Assets/Scripts/PlayerCamera.cs" Line="35" Column="1" />
+      <File FileName="Assets/Scripts/PointCounter.cs" Line="7" Column="30" />
+      <File FileName="Assets/Scripts/ShootToCursor.cs" Line="22" Column="64" />
+      <File FileName="Assets/Scripts/SelfDestruct.cs" Line="11" Column="42" />
+      <File FileName="Assets/Scripts/PointDisplay.cs" Line="60" Column="10" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
@@ -31,5 +36,4 @@
       </Pad>
     </Pads>
   </MonoDevelop.Ide.Workbench>
-  <MonoDevelop.Ide.ItemProperties.Assembly-CSharp PreferredExecutionTarget="4d6bf935-7c55-4c88-b2c2-ebb9715babb5" />
 </Properties>

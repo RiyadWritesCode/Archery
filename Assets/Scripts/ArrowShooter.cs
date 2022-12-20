@@ -23,6 +23,8 @@ public class ArrowShooter : MonoBehaviour
     int arrowNumber = 0;
     List<GameObject> launchedArrows = new List<GameObject>();
 
+    public GameObject bow;
+
     void OnEnable()
     {
         shootInput.Enable();
@@ -66,7 +68,7 @@ public class ArrowShooter : MonoBehaviour
 
 
         // Shooting in camera direction
-        launchedArrows[arrowNumber].GetComponent<Rigidbody>().AddForce(playerCamera.player.transform.forward * arrowSpeed * percentageDraw);
+        launchedArrows[arrowNumber].GetComponent<Rigidbody>().AddForce(transform.forward * arrowSpeed * percentageDraw);
 
         arrowNumber++;
         readyToDraw = false;

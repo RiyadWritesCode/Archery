@@ -4,13 +4,14 @@ using UnityEngine;
 
 public class PointCounter : MonoBehaviour
 {
-    // Start is called before the first frame update
+    public int ringNumber = 0;
+    PointDisplay PointDisplay;
+
     void Start()
     {
-        
+        PointDisplay = FindObjectOfType<PointDisplay>();
     }
 
-    // Update is called once per frame
     void Update()
     {
         
@@ -18,7 +19,7 @@ public class PointCounter : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
-        if (collision.gameObject.CompareTag("Bullseye"))
+        if (collision.gameObject.CompareTag("bullseye"))
         {
             float bullseyeLength = collision.gameObject.GetComponent<MeshFilter>().mesh.bounds.extents.x;
             float ringWidth = bullseyeLength / 4.5f;
@@ -28,35 +29,29 @@ public class PointCounter : MonoBehaviour
 
             float contactDistanceX = Mathf.Abs(bullseyeCenter.x - contactPoint.x);
             float contactDistanceY = Mathf.Abs(bullseyeCenter.y - contactPoint.y);
-            float ringNumber = 0;
 
             if (contactDistanceX < ringWidth / 2 && contactDistanceY < ringWidth / 2)
             {
-                ringNumber = 1;
-                Debug.Log("You have hit the YELLOW ring! - 5 Points");
+                ringNumber = 1;               
             }
             else if (contactDistanceX < ringWidth * 1.5 && contactDistanceY < ringWidth * 1.5)
             {
                 ringNumber = 2;
-                Debug.Log("You have hit the RED ring! - 4 Points");
             }
             else if (contactDistanceX < ringWidth * 2.5 && contactDistanceY < ringWidth * 2.5)
             {
                 ringNumber = 3;
-                Debug.Log("You have hit the BLUE ring! - 3 Points");
             }
             else if (contactDistanceX < ringWidth * 3.5 && contactDistanceY < ringWidth * 3.5)
             {
                 ringNumber = 4;
-                Debug.Log("You have hit the BLACK ring! - 2 Points");
             }
             else if (contactDistanceX < ringWidth * 4.5 && contactDistanceY < ringWidth * 4.5)
             {
                 ringNumber = 5;
-                Debug.Log("You have hit the WHITE ring! - 1 Point");
             }
 
-
+            PointDisplay.DisplayPoints(ringNumber);
         }
     }
 }

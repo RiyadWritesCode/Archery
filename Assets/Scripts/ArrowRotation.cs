@@ -34,5 +34,10 @@ public class ArrowRotation : MonoBehaviour
             ms.enabled = false;
             rb.isKinematic = true;
         }
+
+        if(collision.gameObject.tag == "Player")
+        {
+            Destroy(gameObject);
+        }
     }
 }
