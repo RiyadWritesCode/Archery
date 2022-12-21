@@ -32,6 +32,8 @@ public class PlayerController : MonoBehaviour
     Rigidbody rb;
     RaycastHit hit;
 
+    PlaySounds PlaySounds;
+
     private void OnEnable()
     {
         movementInput.Enable();
@@ -47,6 +49,8 @@ public class PlayerController : MonoBehaviour
     {
         rb = playerMesh.GetComponent<Rigidbody>();
         rb.freezeRotation = true;
+
+        PlaySounds = FindObjectOfType<PlaySounds>();
     }
 
     void Update()
@@ -72,13 +76,40 @@ public class PlayerController : MonoBehaviour
         {
             rb.AddForce(new Vector3(0, -18f, 0));
         }
+
+        
+        //Play run sounds
+        if (horizontalInput != 0 || verticalInput != 0)
+        {
+            if (grounded)
+            {
+                if (!PlaySounds.run.isPlaying)
+                {
+                    PlaySounds.playRun();
+                }
+            }
+            else if (!grounded)
+            {
+                if (PlaySounds.run.isPlaying)
+                {
+                    PlaySounds.stopRun();
+                }
+            }
+        }
+
+        else if (horizontalInput == 0 && verticalInput == 0)
+        {
+            if (PlaySounds.run.isPlaying)
+            {
+                PlaySounds.stopRun();
+            }
+        }
     }
 
     void MyInput()
     {
         horizontalInput = movementInput.ReadValue<Vector2>().x;
         verticalInput = movementInput.ReadValue<Vector2>().y;
-
 
         //when to jump
         if (jumpInput.IsPressed() && readyToJump && grounded)
@@ -109,6 +140,8 @@ public class PlayerController : MonoBehaviour
         rb.velocity = new Vector3(rb.velocity.x, 0f, rb.velocity.z);
 
         rb.AddForce(transform.up * jumpForce, ForceMode.Impulse);
+
+        PlaySounds.playJump();
     }
 
     private void ResetJump()
@@ -129,11 +162,14 @@ public class PlayerController : MonoBehaviour
         if (grounded)
         {
             rb.AddForce(moveDirection * moveSpeed * 10f, ForceMode.Force);
+
+            
         }
 
         else if (!grounded)
         {
             rb.AddForce(moveDirection * moveSpeed * 10f * airMultiplier, ForceMode.Force);
+            
         }   
     }
 }

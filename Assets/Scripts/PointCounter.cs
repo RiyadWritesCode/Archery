@@ -7,9 +7,12 @@ public class PointCounter : MonoBehaviour
     public int ringNumber = 0;
     PointDisplay PointDisplay;
 
+    PlaySounds PlaySounds;
+
     void Start()
     {
         PointDisplay = FindObjectOfType<PointDisplay>();
+        PlaySounds = FindObjectOfType<PlaySounds>();
     }
 
     void Update()
@@ -32,7 +35,7 @@ public class PointCounter : MonoBehaviour
 
             if (contactDistanceX < ringWidth / 2 && contactDistanceY < ringWidth / 2)
             {
-                ringNumber = 1;               
+                ringNumber = 1;
             }
             else if (contactDistanceX < ringWidth * 1.5 && contactDistanceY < ringWidth * 1.5)
             {
@@ -52,6 +55,7 @@ public class PointCounter : MonoBehaviour
             }
 
             PointDisplay.DisplayPoints(ringNumber);
+            PlaySounds.playTargetDing(PointDisplay.pointNumber);
         }
     }
 }

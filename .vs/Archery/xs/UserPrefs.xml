@@ -1,29 +1,26 @@
 ﻿<Properties StartupConfiguration="{EF5A1A13-DF17-BF6D-4824-ECB581C5ECA1}|">
-  <MonoDevelop.Ide.DebuggingService.Breakpoints>
-    <BreakpointStore />
-  </MonoDevelop.Ide.DebuggingService.Breakpoints>
-  <MultiItemStartupConfigurations />
-  <MonoDevelop.Ide.ItemProperties.Assembly-CSharp PreferredExecutionTarget="3e9d976a-6c97-44fe-bb8f-718bd1cc99a6" />
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/PointDisplay.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/ShootToCursor.cs">
     <Files>
-      <File FileName="Assets/Scripts/PlayerController.cs" Line="29" Column="25" />
-      <File FileName="Assets/Scripts/arrowRotation.cs" Line="1" Column="1" />
-      <File FileName="Assets/Scripts/MoveBow.cs" Line="18" Column="1" />
-      <File FileName="Assets/Scripts/BowAnimator.cs" Line="32" Column="80" />
-      <File FileName="Assets/Scripts/ArrowShooter.cs" Line="71" Column="72" />
-      <File FileName="Assets/Scripts/MovePlayer.cs" Line="1" Column="1" />
-      <File FileName="Assets/Scripts/PlayerCamera.cs" Line="35" Column="1" />
-      <File FileName="Assets/Scripts/PointCounter.cs" Line="7" Column="30" />
-      <File FileName="Assets/Scripts/ShootToCursor.cs" Line="22" Column="64" />
-      <File FileName="Assets/Scripts/SelfDestruct.cs" Line="11" Column="42" />
-      <File FileName="Assets/Scripts/PointDisplay.cs" Line="60" Column="10" />
+      <File FileName="Assets/Scripts/PointCounter.cs" Line="58" Column="63" />
+      <File FileName="Assets/Scripts/PlaySounds.cs" Line="66" Column="24" />
+      <File FileName="Assets/Scripts/PointDisplay.cs" Line="1" Column="1" />
+      <File FileName="Assets/Scripts/ArrowShooter.cs" Line="42" Column="53" />
+      <File FileName="Assets/Scripts/MoveBow.cs" Line="1" Column="1" />
+      <File FileName="Assets/Scripts/BowAnimator.cs" Line="39" Column="66" />
+      <File FileName="Assets/Scripts/PlayerController.cs" Line="101" Column="14" />
+      <File FileName="Assets/Scripts/ShootToCursor.cs" Line="1" Column="1" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
         <State name="__root__">
-          <Node name="Archery" expanded="True" selected="True" />
+          <Node name="Archery" expanded="True">
+            <Node name="Assets" expanded="True">
+              <Node name="Scenes" expanded="True" />
+              <Node name="Scripts" expanded="True">
+                <Node name="ShootToCursor.cs" selected="True" />
+              </Node>
+            </Node>
+          </Node>
         </State>
       </Pad>
       <Pad Id="MonoDevelop.Debugger.WatchPad">
@@ -36,4 +33,11 @@
       </Pad>
     </Pads>
   </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MonoDevelop.Ide.ItemProperties.Assembly-CSharp PreferredExecutionTarget="a4374b18-7798-4db1-937d-aa7b15bb82ba" />
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MultiItemStartupConfigurations />
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
 </Properties>

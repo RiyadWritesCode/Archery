@@ -7,11 +7,13 @@ public class BowAnimator : MonoBehaviour
     Animator animator;
     public bool readyToShoot = false;
     ArrowShooter ArrowShooter;
+    PlaySounds PlaySounds;
 
     void Start()
     {
         animator = GetComponent<Animator>();
         ArrowShooter = FindObjectOfType<ArrowShooter>();
+        PlaySounds = FindObjectOfType<PlaySounds>();
     }
 
     // Update is called once per frame
@@ -22,6 +24,8 @@ public class BowAnimator : MonoBehaviour
             ArrowShooter.bowArrow.GetComponent<MeshRenderer>().enabled = true;
             animator.SetBool("isDrawing", true);
             readyToShoot = true;
+            PlaySounds.playBowDraw();
+
         }
 
         else if (ArrowShooter.shootInput.WasReleasedThisFrame() && readyToShoot)
@@ -31,6 +35,8 @@ public class BowAnimator : MonoBehaviour
             ArrowShooter.ShootArrow();
             ArrowShooter.bowArrow.GetComponent<MeshRenderer>().enabled = false;
             readyToShoot = false;
+            PlaySounds.stopBowDraw();
+            PlaySounds.playArrowShoot(ArrowShooter.percentageDraw);
         }
 
     }

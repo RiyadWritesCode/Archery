@@ -19,9 +19,10 @@ public class ArrowShooter : MonoBehaviour
     public InputAction shootInput;
 
     PlayerCamera playerCamera;
+    PlaySounds PlaySounds;
 
-    int arrowNumber = 0;
-    List<GameObject> launchedArrows = new List<GameObject>();
+    public int arrowNumber = 0;
+    public List<GameObject> launchedArrows = new List<GameObject>();
 
     public GameObject bow;
 
@@ -38,6 +39,7 @@ public class ArrowShooter : MonoBehaviour
     void Start()
     {
         playerCamera = FindObjectOfType<PlayerCamera>();
+        PlaySounds = FindObjectOfType<PlaySounds>();
     }
 
     void Update()
