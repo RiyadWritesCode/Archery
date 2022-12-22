@@ -1,14 +1,7 @@
 ﻿<Properties StartupConfiguration="{EF5A1A13-DF17-BF6D-4824-ECB581C5ECA1}|">
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/ShootToCursor.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/TextMesh Pro/Shaders/TMP_SDF.shader">
     <Files>
-      <File FileName="Assets/Scripts/PointCounter.cs" Line="58" Column="63" />
-      <File FileName="Assets/Scripts/PlaySounds.cs" Line="66" Column="24" />
-      <File FileName="Assets/Scripts/PointDisplay.cs" Line="1" Column="1" />
-      <File FileName="Assets/Scripts/ArrowShooter.cs" Line="42" Column="53" />
-      <File FileName="Assets/Scripts/MoveBow.cs" Line="1" Column="1" />
-      <File FileName="Assets/Scripts/BowAnimator.cs" Line="39" Column="66" />
-      <File FileName="Assets/Scripts/PlayerController.cs" Line="101" Column="14" />
-      <File FileName="Assets/Scripts/ShootToCursor.cs" Line="1" Column="1" />
+      <File FileName="Assets/TextMesh Pro/Shaders/TMP_SDF.shader" Line="1" Column="1" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
@@ -16,8 +9,11 @@
           <Node name="Archery" expanded="True">
             <Node name="Assets" expanded="True">
               <Node name="Scenes" expanded="True" />
-              <Node name="Scripts" expanded="True">
-                <Node name="ShootToCursor.cs" selected="True" />
+              <Node name="Scripts" expanded="True" />
+              <Node name="TextMesh Pro" expanded="True">
+                <Node name="Shaders" expanded="True">
+                  <Node name="TMP_SDF.shader" selected="True" />
+                </Node>
               </Node>
             </Node>
           </Node>
