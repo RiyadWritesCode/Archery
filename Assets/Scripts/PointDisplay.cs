@@ -11,18 +11,19 @@ public class PointDisplay : MonoBehaviour
     public GameObject pointText;
     public GameObject pointContainer;
 
+    public GameObject pointDisplayText;
+    public int totalPoints = 0;
+
     public int pointNumber;
 
     void Start()
     {
-        //PointCounter = FindObjectOfType<PointCounter>();
-
 
     }
 
     void Update()
     {
-        
+        pointDisplayText.GetComponent<TextMeshProUGUI>().text = "Points: " + totalPoints;
     }
 
     public void DisplayPoints(int ringNumber)
@@ -58,6 +59,8 @@ public class PointDisplay : MonoBehaviour
             currentPointDisplayText.color = new Color32(246, 246, 246, 255);
             pointNumber = 1;
         }
+
+        totalPoints += pointNumber;
 
         currentPointDisplayText.text = "+" + pointNumber.ToString();
     }

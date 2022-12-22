@@ -4,14 +4,15 @@ using UnityEngine;
 
 public class BowAnimator : MonoBehaviour
 {
-    Animator animator;
+    Animator bowAnimator;
+    public Animator playerAnimator;
     public bool readyToShoot = false;
     ArrowShooter ArrowShooter;
     PlaySounds PlaySounds;
 
     void Start()
     {
-        animator = GetComponent<Animator>();
+        bowAnimator = GetComponent<Animator>();
         ArrowShooter = FindObjectOfType<ArrowShooter>();
         PlaySounds = FindObjectOfType<PlaySounds>();
     }
@@ -22,21 +23,29 @@ public class BowAnimator : MonoBehaviour
         if (ArrowShooter.shootInput.WasPressedThisFrame() && ArrowShooter.readyToDraw)
         {
             ArrowShooter.bowArrow.GetComponent<MeshRenderer>().enabled = true;
-            animator.SetBool("isDrawing", true);
+            bowAnimator.SetBool("isDrawing", true);
             readyToShoot = true;
             PlaySounds.playBowDraw();
+            if (!playerAnimator.GetCurrentAnimatorStateInfo(0).IsName("PlayerAiming"))
+            {
+                playerAnimator.SetBool("aiming", true);
+            }
 
         }
 
         else if (ArrowShooter.shootInput.WasReleasedThisFrame() && readyToShoot)
         {
-            animator.SetBool("isDrawing", false);
-            ArrowShooter.percentageDraw = animator.GetCurrentAnimatorStateInfo(0).normalizedTime / 1f;
+            bowAnimator.SetBool("isDrawing", false);
+            ArrowShooter.percentageDraw = bowAnimator.GetCurrentAnimatorStateInfo(0).normalizedTime / 1f;
             ArrowShooter.ShootArrow();
             ArrowShooter.bowArrow.GetComponent<MeshRenderer>().enabled = false;
             readyToShoot = false;
             PlaySounds.stopBowDraw();
             PlaySounds.playArrowShoot(ArrowShooter.percentageDraw);
+            if (playerAnimator.GetCurrentAnimatorStateInfo(0).IsName("PlayerAiming"))
+            {
+                playerAnimator.SetBool("aiming", false);
+            }
         }
 
     }

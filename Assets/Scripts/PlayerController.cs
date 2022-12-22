@@ -8,6 +8,8 @@ public class PlayerController : MonoBehaviour
     [SerializeField] InputAction movementInput;
     [SerializeField] InputAction jumpInput;
 
+    public Animator playerAnimator;
+
     public float moveSpeed;
     public GameObject playerMesh;
 
@@ -56,8 +58,8 @@ public class PlayerController : MonoBehaviour
     void Update()
     {
         // ground check
-        grounded = Physics.Raycast(playerMesh.transform.position, Vector3.down, playerHeight * 0.5f + 0.2f, whatIsGround);
-        //grounded = Physics.SphereCast(playerMesh.transform.position, 4f, Vector3.down, out hit, playerHeight * 0.5f + 0.2f, whatIsGround);
+        //grounded = Physics.Raycast(playerMesh.transform.position, Vector3.down, playerHeight * 0.5f + 0.2f, whatIsGround);
+        grounded = Physics.SphereCast(playerMesh.transform.position, 2.31f, Vector3.down, out hit, playerHeight * 0.5f + 0.2f, whatIsGround);
 
         // handle drag
         if (grounded)
@@ -69,14 +71,10 @@ public class PlayerController : MonoBehaviour
             rb.drag = airDrag;
         }
 
-        MyInput();
-        SpeedControl();
-
         if (rb.velocity.y < startDownForce && !grounded)
         {
             rb.AddForce(new Vector3(0, -18f, 0));
         }
-
         
         //Play run sounds
         if (horizontalInput != 0 || verticalInput != 0)
@@ -86,6 +84,7 @@ public class PlayerController : MonoBehaviour
                 if (!PlaySounds.run.isPlaying)
                 {
                     PlaySounds.playRun();
+
                 }
             }
             else if (!grounded)
@@ -93,6 +92,7 @@ public class PlayerController : MonoBehaviour
                 if (PlaySounds.run.isPlaying)
                 {
                     PlaySounds.stopRun();
+                    
                 }
             }
         }
@@ -103,6 +103,38 @@ public class PlayerController : MonoBehaviour
             {
                 PlaySounds.stopRun();
             }
+            
+        }
+
+        //Play animations
+
+        if (horizontalInput != 0 || verticalInput != 0)
+        {
+            if (grounded && !playerAnimator.GetCurrentAnimatorStateInfo(0).IsName("PlayerMove"))
+            {
+                playerAnimator.SetBool("walking", true);
+            }
+        }
+
+        else if (horizontalInput == 0 && verticalInput == 0)
+        {
+            if (playerAnimator.GetCurrentAnimatorStateInfo(0).IsName("PlayerMove"))
+            {
+                playerAnimator.SetBool("walking", false);
+            }
+        }
+
+        if (!grounded)
+        {
+            playerAnimator.SetBool("walking", false);
+            if (!playerAnimator.GetCurrentAnimatorStateInfo(0).IsName("PlayerJump"))
+            {
+                playerAnimator.SetBool("jumping", true);
+            }
+        }
+        else if (grounded)
+        {
+            playerAnimator.SetBool("jumping", false);
         }
     }
 
@@ -112,7 +144,7 @@ public class PlayerController : MonoBehaviour
         verticalInput = movementInput.ReadValue<Vector2>().y;
 
         //when to jump
-        if (jumpInput.IsPressed() && readyToJump && grounded)
+        if (jumpInput.IsPressed() && grounded)
         {
             readyToJump = false;
 
@@ -152,6 +184,8 @@ public class PlayerController : MonoBehaviour
     private void FixedUpdate()
     {
         MovePlayer();
+        MyInput();
+        SpeedControl();
     }
 
     void MovePlayer()
