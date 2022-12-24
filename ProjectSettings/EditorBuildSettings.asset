@@ -11,4 +11,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Training Arena.unity
     guid: b9e34b54789f14ec7973d97aef4b991d
+  - enabled: 1
+    path: Assets/Scenes/Settings Menu.unity
+    guid: b168222a0f6d1416d8c3270c9c29a265
   m_configObjects: {}

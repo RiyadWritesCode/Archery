@@ -6,6 +6,7 @@ TagManager:
   tags:
   - arrow
   - bullseye
+  - MusicPlayer
   layers:
   - Default
   - TransparentFX

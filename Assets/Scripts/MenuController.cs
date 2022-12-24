@@ -21,6 +21,12 @@ public class MenuController : MonoBehaviour
 
     public void PlayTraining()
     {
-        StartCoroutine(LevelLoader.LoadLevel(1));
+        StartCoroutine(LevelLoader.LoadSceneByName("Training Arena"));
     }
+
+    public void PlaySettings()
+    {
+        StartCoroutine(LevelLoader.LoadSceneByName("Settings Menu"));
+    }
+
 }

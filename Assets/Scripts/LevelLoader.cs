@@ -10,10 +10,7 @@ public class LevelLoader : MonoBehaviour
 
     void Start()
     {
-        if (Input.GetMouseButtonDown(0))
-        {
-            LoadNextLevel();
-        }
+
     }
 
     void LoadNextLevel()
@@ -21,10 +18,32 @@ public class LevelLoader : MonoBehaviour
         //StartCoroutine(LoadLevel(SceneManager.GetActiveScene().buildIndex + 1));
     }
 
-    public IEnumerator LoadLevel(int levelIndex)
+    public IEnumerator LoadSceneByIndex(int sceneIndex)
     {
         curtainAnimator.SetTrigger("transitionToNextScene");
+
         yield return new WaitForSeconds(transitionTime);
-        SceneManager.LoadScene(levelIndex);
+
+        SceneManager.LoadScene(sceneIndex);
     }
+
+    public IEnumerator LoadSceneByName(string sceneName)
+    {
+        curtainAnimator.SetTrigger("transitionToNextScene");
+
+        yield return new WaitForSeconds(transitionTime);
+
+        SceneManager.LoadScene(sceneName);
+    }
+
+    private void Awake()
+    {
+        if (SceneManager.GetActiveScene().name != "Main Menu" && SceneManager.GetActiveScene().name != "Settings Menu")
+        {
+            GameObject MusicPlayer = FindObjectOfType<PlayMusic>().gameObject;
+            Destroy(MusicPlayer);
+        }
+    }
+
+    
 }

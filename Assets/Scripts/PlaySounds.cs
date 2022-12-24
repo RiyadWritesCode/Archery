@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Audio;
 
 public class PlaySounds : MonoBehaviour
 {
@@ -10,6 +11,9 @@ public class PlaySounds : MonoBehaviour
     public AudioSource arrowShoot;
     public AudioSource jump;
     public AudioSource run;
+    //public AudioSource targetDing;
+
+    public AudioMixerGroup soundMixerGroup;
 
     public int whichBowDraw;
 
@@ -17,16 +21,21 @@ public class PlaySounds : MonoBehaviour
     {
         ArrowShooter = FindObjectOfType<ArrowShooter>();
 
+        bowDraw.outputAudioMixerGroup = soundMixerGroup;
+        arrowShoot.outputAudioMixerGroup = soundMixerGroup;
+        jump.outputAudioMixerGroup = soundMixerGroup;
+        run.outputAudioMixerGroup = soundMixerGroup;
+        //targetDing.outputAudioMixerGroup = soundMixerGroup;
     }
 
     void Update()
     {
-        
     }
 
     public void playTargetDing(float pitch)
     {
-        ArrowShooter.launchedArrows[ArrowShooter.arrowNumber - 1].GetComponent<AudioSource>().pitch = 1f + pitch / 10;
+        ArrowShooter.launchedArrows[ArrowShooter.arrowNumber - 1].GetComponent<AudioSource>().outputAudioMixerGroup = soundMixerGroup;
+        ArrowShooter.launchedArrows[ArrowShooter.arrowNumber - 1].GetComponent<AudioSource>().pitch = 0.95f + pitch / 12;
         ArrowShooter.launchedArrows[ArrowShooter.arrowNumber - 1].GetComponent<AudioSource>().Play();
     }
 
@@ -67,5 +76,9 @@ public class PlaySounds : MonoBehaviour
     {
         run.Stop();
     }
+
+    
+
+    
 
 }
