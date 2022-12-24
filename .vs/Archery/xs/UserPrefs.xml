@@ -1,11 +1,11 @@
 ﻿<Properties StartupConfiguration="{EF5A1A13-DF17-BF6D-4824-ECB581C5ECA1}|">
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />
   <MultiItemStartupConfigurations />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/SettingsController.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/PlayMusic.cs">
     <Files>
       <File FileName="Assets/Scripts/LevelLoader.cs" Line="44" Column="32" />
       <File FileName="Assets/Scripts/MenuController.cs" Line="31" Column="1" />
-      <File FileName="Assets/Scripts/SettingsController.cs" Line="38" Column="55" />
+      <File FileName="Assets/Scripts/SettingsController.cs" Line="26" Column="55" />
       <File FileName="Assets/Scripts/PlayMusic.cs" Line="30" Column="16" />
       <File FileName="Assets/Scripts/PlaySounds.cs" Line="14" Column="37" />
       <File FileName="Assets/Scripts/MenuArcherAnimator.cs" Line="17" Column="1" />
@@ -23,11 +23,7 @@
         <State name="__root__">
           <Node name="Archery" expanded="True">
             <Node name="Assets" expanded="True">
-              <Node name="Scenes" expanded="True" />
               <Node name="Scripts" expanded="True" />
-              <Node name="TextMesh Pro" expanded="True">
-                <Node name="Shaders" expanded="True" />
-              </Node>
             </Node>
           </Node>
         </State>
