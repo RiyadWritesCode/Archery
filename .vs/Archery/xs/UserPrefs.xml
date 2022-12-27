@@ -1,29 +1,31 @@
 ﻿<Properties StartupConfiguration="{EF5A1A13-DF17-BF6D-4824-ECB581C5ECA1}|">
-  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MonoDevelop.Ide.ItemProperties.Assembly-CSharp PreferredExecutionTarget="19183e37-b980-4267-88ff-dab102acaacb" />
   <MultiItemStartupConfigurations />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/PlayMusic.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/PointDisplay.cs">
     <Files>
       <File FileName="Assets/Scripts/LevelLoader.cs" Line="44" Column="32" />
       <File FileName="Assets/Scripts/MenuController.cs" Line="31" Column="1" />
-      <File FileName="Assets/Scripts/SettingsController.cs" Line="26" Column="55" />
+      <File FileName="Assets/Scripts/SettingsController.cs" />
       <File FileName="Assets/Scripts/PlayMusic.cs" Line="30" Column="16" />
       <File FileName="Assets/Scripts/PlaySounds.cs" Line="14" Column="37" />
       <File FileName="Assets/Scripts/MenuArcherAnimator.cs" Line="17" Column="1" />
       <File FileName="Assets/Scripts/PointDisplay.cs" Line="1" Column="1" />
-      <File FileName="Assets/Scripts/PointCounter.cs" Line="1" Column="1" />
-      <File FileName="Assets/Scripts/ArrowRotation.cs" Line="1" Column="1" />
+      <File FileName="Assets/Scripts/PointCounter.cs" />
+      <File FileName="Assets/Scripts/ArrowRotation.cs" />
       <File FileName="Assets/Scripts/ArrowShooter.cs" Line="1" Column="1" />
       <File FileName="Assets/Scripts/BowAnimator.cs" Line="1" Column="1" />
       <File FileName="Assets/Scripts/MovePlayer.cs" Line="1" Column="1" />
       <File FileName="Assets/Scripts/PlayerCamera.cs" Line="1" Column="1" />
-      <File FileName="Assets/Scripts/PlayerController.cs" Line="1" Column="1" />
+      <File FileName="Assets/Scripts/PlayerController.cs" Line="11" Column="27" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
         <State name="__root__">
           <Node name="Archery" expanded="True">
             <Node name="Assets" expanded="True">
-              <Node name="Scripts" expanded="True" />
+              <Node name="Scripts" expanded="True">
+                <Node name="PointDisplay.cs" selected="True" />
+              </Node>
             </Node>
           </Node>
         </State>
@@ -31,7 +33,7 @@
     </Pads>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.ItemProperties.Assembly-CSharp PreferredExecutionTarget="40264c5d-9fd9-44df-8112-6aec87781bcf" />
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore />
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
