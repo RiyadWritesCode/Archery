@@ -1,0 +1,1 @@
+This is a game I made for my personal project, you can play it on my itch.io page https://riyadwritescode.itch.io/archermania. I also documented making this game on my YouTube channel, riyadwritescode https://www.youtube.com/@riyadwritescode.
